@@ -8,8 +8,17 @@ function App() {
 
     return (
         <div className="App">
-            <input type="file" accept="" style="display: none;"></input>
-            <Button type="primary">Button</Button>
+            <div className="">
+                <Button type="primary">
+                    <label htmlFor="upload">
+                        <span>选择图片</span>
+                        <input type="file" id="upload" accept=""></input>
+                    </label>
+                </Button>
+            </div>
+            <div>
+                <Button type="primary">保存图片</Button>
+            </div>
         </div>
     );
 }
