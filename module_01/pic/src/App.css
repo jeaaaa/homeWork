@@ -1,10 +1,24 @@
 @import '~antd/dist/antd.css';
 
 .App {
+    padding: 80px;
   display: grid;
-  
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 500px 500px;
+  column-gap: 50px;
 }
-
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    height: 400px;
+    width: 400px;
+    margin-bottom: 30px;
+    object-fit: scale-down;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
