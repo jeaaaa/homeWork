@@ -31,19 +31,28 @@ class App extends React.Component {
         ctx.clearRect(0, 0, 400, 400);
 
         let img = document.createElement('img'); //创建img元素
-        img.src = this.state.src; //指定img的src
+        img.src = this.state.src;
 
-        let imgWidth = img.width; //获取图片的宽度
+        let imgWidth = img.width;   //获取图片的宽度
         let imgHeight = img.height; //获取图片的高度
-        let targetWidth = 400; //指定目标canvas区域的宽度
-        let targetHeight = (imgHeight * targetWidth) / imgWidth; //计算出目标canvas区域的高度
+        let targetWidth = 400;      //指定目标canvas区域的宽度
+        let targetHeight = (imgHeight * targetWidth) / imgWidth;    //计算出目标canvas区域的高度
 
-        let s = (400 - targetHeight) / 2
-        console.log(s)
+        let x = 0, y = 0;   // 计算绘制偏移量
+        if (imgWidth > imgHeight) {   // 图片宽大于高
+            y = (400 - targetHeight) / 2
+        } else if (imgWidth < imgHeight) {
+            x = (400 - targetWidth) / 2
+        } else {
+            x = (400 - targetWidth) / 2
+            y = (400 - targetHeight) / 2
+        }
+
+
         img.addEventListener(
             'load',
             () => {
-                ctx.drawImage(img, 0, s, targetWidth, targetHeight); // 将img元素调用drawImage(img,dx,dy)绘制出来
+                ctx.drawImage(img, x, y, targetWidth, targetHeight);
                 let imagedata = ctx.getImageData(0, 0, img.width, img.height);
                 let data = imagedata.data;
 

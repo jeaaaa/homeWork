@@ -3,8 +3,8 @@
 .App {
     padding: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 500px 500px;
+  grid-template-columns: 1fr 1fr;   /* 列 */
+  grid-template-rows: 500px; /* 行 */
   column-gap: 50px;
 }
 .wrap{
