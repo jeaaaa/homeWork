@@ -2,7 +2,8 @@
  * 快排生成新数组，输出第几个
  */
 const findKthLargest = (nums, k) => {
-    console.log(quickSort(nums)[k - 1])
+    // nums.sort((a,b) => b-a);
+    // return nums[k-1]
     return quickSort(nums)[k - 1]
 };
 
@@ -46,4 +47,4 @@ const quickSort = (arr) => {
 }
 
 
-findKthLargest([3, 2, 1, 5, 6, 4], 5)
+findKthLargest([7, 6, 5, 4, 3, 2, 1], 2)
