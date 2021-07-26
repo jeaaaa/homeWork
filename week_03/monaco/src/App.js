@@ -207,6 +207,9 @@ class App extends React.Component {
         console.log('editorDidMount', editor);
         editor.focus();
     }
+    goLive() {
+        console.log('233')
+    }
     render() {
         const code = this.state.code;
         const options = {
@@ -234,15 +237,14 @@ class App extends React.Component {
                             editorDidMount={this.editorDidMountHandle}
                         />
                     </div>
-                    <div className="view" contenteditable={true}>
+                    <div className="view">
                         {this.state.code}
                     </div>
+                    <div className="btn" onClick={(e) => this.goLive(e)}>go live</div>
                 </div>
             </div>
         );
     }
 }
-
-
 
 export default App;
