@@ -227,6 +227,7 @@ class App extends React.Component {
                             width="800"
                             height="600"
                             language="javascript"
+                            theme="vs-dark"
                             value={code}
                             options={options}
                             onChange={this.onChangeHandle}
