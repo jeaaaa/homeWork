@@ -9,6 +9,14 @@ const cors = require('koa2-cors')   //跨域
 const Router = require('koa-router')
 let router = new Router()
 
+router.get('/getCategoryList', async (ctx) => {
+    try {
+
+        ctx.body = { code: 1, message: result }
+    } catch (error) {
+        ctx.body = { code: 0, message: error }
+    }
+})
 
 app.use(cors({
     // allowMethods: ['GET', 'POST', 'DELETE'],
