@@ -38,6 +38,7 @@ router.post('/getFile', async (ctx) => {
         //     console.log(res)
 
         // }).catch(err => console.log(err))
+        // 这里子进程不知道咋写回调返回，外面里面都没有
         ctx.body = { code: 1, url: 'http://localhost:1010' }
     } catch (error) {
         ctx.body = { code: 0, message: error }
