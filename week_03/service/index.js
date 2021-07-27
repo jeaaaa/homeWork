@@ -1,18 +1,44 @@
 
 const Koa = require('koa')
 const path = require('path');
+const fs = require('fs');
+const process = require('child_process');
 const app = new Koa()
-// 引入connect
 
 const bodyParser = require('koa-bodyparser')
 const cors = require('koa2-cors')   //跨域
 const Router = require('koa-router')
 let router = new Router()
 
-router.get('/getCategoryList', async (ctx) => {
-    try {
+// const webpack = require('webpack');
+// const WebpackDevServer = require("webpack-dev-server");
+// // 读取 webpack.config.js 文件中的配置
+// const config = require('./webpack.config');
 
-        ctx.body = { code: 1, message: result }
+router.post('/getFile', async (ctx) => {
+    try {
+        let data = ctx.request.body //获取到的code字符串
+        await fs.writeFile('./src/index.js', data.code, (err) => {
+            if (err) {
+                throw err
+            }
+        })
+        process.exec('npm run dev', (error, stdout, stderr) => {
+            if (error) {
+                console.log(error)
+            } else {
+                console.log(stdout)
+                console.log(stderr)
+            }
+        })
+
+        // await new Promise((resolve, reject) => {
+
+        // }).then((res) => {
+        //     console.log(res)
+
+        // }).catch(err => console.log(err))
+        ctx.body = { code: 1, url: 'http://localhost:1010' }
     } catch (error) {
         ctx.body = { code: 0, message: error }
     }
@@ -31,5 +57,5 @@ app.use(async (ctx) => {
 })
 
 app.listen(8999, () => {
-    console.log('233')
+    console.log('server start on 8999')
 })
