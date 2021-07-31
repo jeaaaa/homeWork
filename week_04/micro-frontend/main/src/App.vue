@@ -1,9 +1,15 @@
 <template>
     <div id="nav">
         <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+        <router-link to="/app1">About</router-link>
     </div>
-    <router-view />
+    <router-view>
+        <div id="micro-app"></div>
+    </router-view>
+    <!-- <div id="layout-wrapper">
+        <div class="layout-header">头部导航</div>
+        <div id="subapp-viewport"></div>
+    </div> -->
 </template>
 
 <style lang="scss">
