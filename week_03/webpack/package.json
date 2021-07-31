@@ -6,6 +6,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "webpack": "^3.4.0"
+    "webpack": "^3.4.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
