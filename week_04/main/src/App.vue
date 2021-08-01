@@ -2,6 +2,8 @@
     <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/app1">About</router-link>
+        <div class="left"></div>
+        <div class="right"></div>
     </div>
     <router-view>
         <div id="micro-app"></div>
@@ -22,7 +24,7 @@
 }
 
 #nav {
-    padding: 30px;
+    display: grid;
 
     a {
         font-weight: bold;

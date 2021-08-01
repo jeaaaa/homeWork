@@ -14,15 +14,6 @@ const microApps: any[] = [
         props: {
             routerBase: '/app1' // 下发路由给子应用，子应用根据该值去定义qiankun环境下的路由
         }
-    },
-    {
-        name: 'app2',
-        entry: '//localhost:2335',
-        container: '#micro-app',
-        activeRule: '/app2',
-        props: {
-            routerBase: '/app2' // 下发路由给子应用，子应用根据该值去定义qiankun环境下的路由
-        }
     }
 ]
 
