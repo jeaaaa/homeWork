@@ -4,10 +4,19 @@ import Vue from 'vue'
 // 父应用的初始state
 // Vue.observable是为了让initialState变成可响应：https://cn.vuejs.org/v2/api/#Vue-observable。
 const initialState = Vue.observable({
+  msg: '',
   user: {
     name: 10
   }
 })
+export const mutations = {
+  setMsg(msg) {
+    initialState.msg = msg;
+  },
+  changeName(name) {
+    initialState.user.name = name;
+  }
+}
 
 const actions = initGlobalState(initialState)
 
@@ -27,7 +36,5 @@ actions.getGlobalState = (key) => {
 
   return key ? initialState[key] : initialState
 }
-actions.setGlobalState(initialState);
-actions.offGlobalStateChange();
 
 export default actions

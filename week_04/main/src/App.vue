@@ -1,15 +1,15 @@
 <template>
     <div class="layout-wrapper">
-        <div class="layout-header">
-            <div class="logo">QIANKUN-EXAMPLE</div>
-            <ul class="sub-apps">
-                <li v-for="item in microApps" :class="{ active: item.activeRule === current }" :key="item.name" @click="goto(item)">
-                    {{ item.name }}
-                </li>
-            </ul>
-            <button @click="add">加加加</button>
-            <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
-        </div>
+        <ul class="sub-apps left">
+            <li v-for="(item, index) in list.result" :class="{ active: num === index }" @click="setCount(item, index)">
+                {{ item.title }}
+            </li>
+            <li v-for="item in microApps" :class="{ active: item.activeRule === current }" :key="item.name" @click="goto(item)">
+                {{ item.name }}
+            </li>
+            <!-- <li class="userinfo">主应用的state：{{ JSON.stringify(user) }}</li> -->
+        </ul>
+
         <div id="subapp-viewport"></div>
     </div>
 </template>
@@ -17,19 +17,16 @@
 <script>
 import NProgress from 'nprogress'
 import microApps from './micro-app'
-import store from '@/store'
+import store, { mutations } from '@/store'
 export default {
     name: 'App',
     data() {
         return {
             isLoading: true,
             microApps,
-            current: '/sub-vue/'
-        }
-    },
-    computed: {
-        user() {
-            return store.getGlobalState('user')
+            current: '/sub-vue/',
+            list: [],
+            num: null
         }
     },
     watch: {
@@ -45,6 +42,26 @@ export default {
     },
     components: {},
     methods: {
+        setCount(data, index) {
+            console.log(index)
+            this.num = index
+            console.log(this.num)
+            console.log(data)
+            mutations.setMsg(JSON.stringify(data))
+        },
+        getList() {
+            return fetch('https://api.apiopen.top/getWangYiNews', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    page: 1,
+                    count: 20
+                })
+            }).then((response) => response.json())
+        },
         goto(item) {
             history.pushState(null, item.activeRule, item.activeRule)
             // this.current = item.name
@@ -77,9 +94,10 @@ export default {
             })
         }
     },
-    created() {
+    async created() {
         this.bindCurrent()
         NProgress.start()
+        this.list = await this.getList()
     },
     mounted() {
         this.listenRouterChange()
@@ -119,34 +137,33 @@ body {
     }
 }
 .layout-wrapper {
-    .layout-header {
-        height: 50px;
-        width: 100%;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        line-height: 50px;
-        position: relative;
-        .logo {
-            float: left;
-            margin: 0 50px;
-        }
-        .sub-apps {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    .left {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(15, 14, 14);
+        color: #fff;
+        overflow-y: scroll;
+    }
+    .sub-apps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
             list-style: none;
-            margin: 0;
-            li {
-                list-style: none;
-                display: inline-block;
-                padding: 0 20px;
-                cursor: pointer;
-                &.active {
-                    color: #42b983;
-                    text-decoration: underline;
-                }
+            display: inline-block;
+            padding: 20px;
+            cursor: pointer;
+            width: 220px;
+            margin: 10px 0;
+            border: 1px solid #e1e1e1;
+            &.active {
+                color: #42b983;
+                text-decoration: underline;
             }
-        }
-        .userinfo {
-            position: absolute;
-            right: 100px;
-            top: 0;
         }
     }
 }

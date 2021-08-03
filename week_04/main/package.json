@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "nprogress": "^0.2.0",
     "qiankun": "^2.0.22",
+    "rxjs": "^7.3.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {

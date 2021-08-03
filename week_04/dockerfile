@@ -1,0 +1,9 @@
+FROM nginx
+
+COPY main/dist/ /usr/share/nginx/html/main
+
+COPY sub-react/build/ /usr/share/nginx/html/subapp/sub-react
+
+COPY sub-vue/dist/ /usr/share/nginx/html/subapp/sub-vue
+
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
