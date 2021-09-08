@@ -1,6 +1,6 @@
 <template>
     <div>
-        <draggable v-model="formData">
+        <draggable v-model="formData" @end="dragEnd">
             <transition-group>
                 <template v-for="(item, index) in formData">
                     <el-form
@@ -99,6 +99,9 @@ export default {
             console.log(key, val)
             this.$set(this.formData[key].val, 'value', val)
             this.$emit('change', val)
+        },
+        dragEnd() {
+            // console.log(this.formData)
         }
     }
 }
