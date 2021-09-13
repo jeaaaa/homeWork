@@ -13,7 +13,7 @@ export default {
         return {};
     },
     watch: {
-        formDatas(val) {
+        formDatas() {
             // console.log(val, 2222222);
         }
     },
