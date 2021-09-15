@@ -2,10 +2,10 @@
 <template>
     <div class="page-carousel">
         <h2>Carousel 走马灯</h2>
-        <Carousel height="150px">
-            <Carousel-item v-for="item in 4" :key="item">
-                <h3 class="small">{{ item }}</h3>
-            </Carousel-item>
+        <Carousel :interval="5000" arrow="always">
+            <CarouselItem v-for="item in 4" :key="item">
+                <h3>{{ item }}</h3>
+            </CarouselItem>
         </Carousel>
     </div>
 </template>
@@ -13,11 +13,11 @@
 <script lang="ts">
 import { defineComponent, ref, toRefs, computed, h } from 'vue'
 import type { PropType } from 'vue'
-import { Carousel } from '@/ele'
+import { Carousel, CarouselItem } from '@/ele'
 
 export default defineComponent({
     name: 'PageCarousel',
-    components: { Carousel },
+    components: { Carousel, CarouselItem },
 
     setup(props, { emit, slots }) {
         return {}
@@ -28,9 +28,9 @@ export default defineComponent({
 <style>
 .el-carousel__item h3 {
     color: #475669;
-    font-size: 14px;
+    font-size: 18px;
     opacity: 0.75;
-    line-height: 150px;
+    line-height: 300px;
     margin: 0;
 }
 
