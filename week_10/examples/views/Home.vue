@@ -2,7 +2,7 @@
     <div clas="home">
         <Row :gutter="space">
             <Col v-for="item in eleComponents" :span="6" :key="item[0]">
-                <button @click="gotoComponnet(item[0])">{{ item[1] }}</button>
+                <Button @click="gotoComponnet(item[0])">{{ item[1] }}</Button>
             </Col>
         </Row>
     </div>
@@ -11,12 +11,12 @@
 <script lang="ts">
 import { defineComponent, ref, toRef, toRefs, h, reactive, watch, watchEffect, effect, computed, getCurrentInstance } from 'vue'
 import { eleComponents } from '../constants'
-import { Row, Col } from '@/ele'
+import { Row, Col, Button } from '@/ele'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
     name: 'Home',
-    components: { Row, Col },
+    components: { Row, Col, Button },
     setup(props, { slots }) {
         // const instance = getCurrentInstance();
 
