@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "install": "npm-run-all --serial install:*",
+    "install:exm": "cd examples && yarn",
+    "install:token": "cd packages/tokens && yarn"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.2",
     "@vitejs/plugin-vue-jsx": "^1.1.8",
     "@vue/compiler-sfc": "^3.2.11",
+    "npm-run-all": "^4.1.5",
     "vite": "^2.5.6",
     "vite-plugin-windicss": "^1.4.2"
   },
