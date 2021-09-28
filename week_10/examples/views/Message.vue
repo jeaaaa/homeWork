@@ -2,23 +2,22 @@
 <template>
     <div class="page-message">
         <h2>Message 消息提示</h2>
-        <Message></Message>
+        <Message type="success">成功</Message>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRefs, computed, h } from "vue";
-import type { PropType } from 'vue';
-import { Message } from "@/ele";
+import { defineComponent, ref, toRefs, computed, h } from 'vue'
+import type { PropType } from 'vue'
+import { Message } from '@/ele'
 
 export default defineComponent({
     name: 'PageMessage',
     components: { Message },
     setup(props, { emit, slots }) {
-        return {
-        }
+        return {}
     }
-});
+})
 </script>
 
 <style lang="scss" scoped>

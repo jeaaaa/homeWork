@@ -49,6 +49,7 @@ export { default as Popover } from "./Popover/Popover.vue";
 export { default as Popconfirm } from "./Popconfirm/Popconfirm.vue";
 export { default as Card } from "./Card/Card.vue";
 export { default as Carousel } from "./Carousel/Carousel.vue";
+export { default as CarouselItem } from "./Carousel/Carousel-item.vue";
 export { default as Collapse } from "./Collapse/Collapse.vue";
 export { default as Timeline } from "./Timeline/Timeline.vue";
 export { default as Divider } from "./Divider/Divider.vue";

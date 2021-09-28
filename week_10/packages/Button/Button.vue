@@ -25,13 +25,15 @@
 
 <script lang="ts">
 import { computed, inject, defineComponent } from 'vue'
-// import { elFormKey, elFormItemKey } from '@/tokens'
-// import { useGlobalConfig } from '@/utils/util'
-// import { elButtonGroupKey } from '@/tokens'
+import { elFormKey, elFormItemKey } from '@/tokens'
+import { useGlobalConfig } from '@/utils/util'
+import { elButtonGroupKey } from '@/tokens'
 
 import { buttonEmits, buttonProps } from './button'
 
-// import type { ElFormContext, ElFormItemContext } from '@/tokens'
+import type { ElFormContext, ElFormItemContext } from '@/tokens'
+import '@/theme/chalk/base.scss'
+import '@/theme/chalk/button.scss'
 
 export default defineComponent({
     name: 'ElButton',
@@ -40,7 +42,7 @@ export default defineComponent({
     emits: buttonEmits,
 
     setup(props, { emit }) {
-        // const $ELEMENT = useGlobalConfig()
+        const $ELEMENT = useGlobalConfig()
 
         const elForm = inject<ElFormContext>(elFormKey)
         const elFormItem = inject<ElFormItemContext>(elFormItemKey)
