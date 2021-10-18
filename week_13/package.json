@@ -1,0 +1,23 @@
+{
+    "name": "week_13",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "install": "npm-run-all --serial install:*",
+        "install:adminError": "cd ostrich-admin/error && yarn",
+        "install:adminEvent": "cd ostrich-admin/event && yarn",
+        "install:adminMenu": "cd ostrich-admin/menu && yarn",
+        "install:adminPerformance": "cd ostrich-admin/performance && yarn",
+        "start": "npm-run-all --parallel start:*",
+        "start:error": "cd ostrich-admin/error && yarn serve",
+        "start:event": "cd ostrich-admin/event && yarn serve",
+        "start:menu": "cd ostrich-admin/menu && yarn serve",
+        "start:performance": "cd ostrich-admin/performance && yarn serve"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "npm-run-all": "^4.1.5"
+    }
+}
