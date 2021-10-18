@@ -1,0 +1,21 @@
+{
+  "name": "ostrich-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^3.3.0",
+    "rollup": "^2.58.0",
+    "tti-polyfill": "^0.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
