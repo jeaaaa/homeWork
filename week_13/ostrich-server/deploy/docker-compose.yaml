@@ -9,7 +9,7 @@ services:
       - "MONGO_INITDB_ROOT_USERNAME=root"
       - "MONGO_INITDB_ROOT_PASSWORD=mongodb"
     volumes:
-      - "/Users/linxi/work/workspace/volumes/mongodb:/data"
+      - "/Users/jea/work/workspace/volumes/mongodb:/data"
       - "/etc/localtime:/etc/localtime"
     ports:
       - 27017:27017
@@ -49,7 +49,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "/Users/linxi/work/workspace/volumes/mysql:/data"
+      - "/Users/jea/work/workspace/volumes/mysql:/data"
 
   phpmyadmin:
     image: "phpmyadmin/phpmyadmin"
